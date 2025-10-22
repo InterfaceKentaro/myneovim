@@ -33,3 +33,6 @@ vim.api.nvim_set_keymap('n', '<Leader>ha', ':lua require("harpoon.mark").add_fil
 vim.api.nvim_set_keymap('n', '<Leader>hu', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', {noremap = true})
 
 
+-- ToggleTerm keymaps
+vim.api.nvim_set_keymap('n', '<Leader>tt', ':lua vim.cmd[[ToggleTerm]]<CR>', {noremap = true});
+vim.api.nvim_set_keymap('t', '<Leader>th', '<C-\\><c-n>', {noremap = true});

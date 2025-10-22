@@ -5,7 +5,7 @@ vim.cmd[[TransparentEnable]]
 require'config.option'
 require'config.keymaps'
 
-vim.cmd[[colorscheme cyberdream]]
+-- vim.cmd[[colorscheme cyberdream]]
 -- require'conifer'.setup({});
 
 require'plugins.diagnostics'

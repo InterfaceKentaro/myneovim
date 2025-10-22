@@ -1,3 +1,3 @@
 return {
-  require'plugins.colorscheme.cyberdream'
+  require'plugins.colorscheme.cyberdream';
 }
