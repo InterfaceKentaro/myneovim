@@ -6,7 +6,7 @@ vim.lsp.config['typescript-language-server'] = {
         "--stdio"
     },
 
-    root_fir = vim.fs.dirname(vim.fs.find({'.git'}, { upward = true })[1]),
+    -- root_fir = vim.fs.dirname(vim.fs.find({'.git'}, { upward = true })[1]),
     filetypes = {'javascript', 'typescript'},
     settings = {},
 };
