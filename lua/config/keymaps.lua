@@ -21,7 +21,7 @@ vim.api.nvim_set_keymap('n', '<Leader>j', '<C-w>j', {noremap=true})
 
 
 -- lsp floating window 
-vim.api.nvim_set_keymap('n', '<Leader>wd', ':lua vim.diagnostic.open_float( {scope = \'line\'})<CR>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<Leader>wd', ':lua vim.diagnostic.open_float({scope = \'line\'})<CR>', {noremap=true})
 
 
 -- telescope 
@@ -31,8 +31,15 @@ vim.api.nvim_set_keymap('n', '<Leader>ff', ':Telescope find_files hidden=true<CR
 -- harpoon
 vim.api.nvim_set_keymap('n', '<Leader>ha', ':lua require("harpoon.mark").add_file()<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>hu', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>hh', ':lua require("harpoon.ui").nav_next()<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>h1', ':lua require("harpoon.ui").nav_file(1)<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>h2', ':lua require("harpoon.ui").nav_file(2)<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>h3', ':lua require("harpoon.ui").nav_file(3)<CR>', {noremap = true})
 
 
 -- ToggleTerm keymaps
 vim.api.nvim_set_keymap('n', '<Leader>tt', ':lua vim.cmd[[ToggleTerm]]<CR>', {noremap = true});
 vim.api.nvim_set_keymap('t', '<Leader>th', '<C-\\><c-n>', {noremap = true});
+
+
+-- lsp 

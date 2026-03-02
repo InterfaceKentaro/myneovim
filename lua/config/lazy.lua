@@ -21,7 +21,7 @@ vim.g.maplocalleader = "\\"
 
 require("lazy").setup({
     spec = {
-        -- require'plugins.toggleterminal',
+        require'plugins.toggleterminal',
         require'plugins.colorschemes',
         require'plugins.lualine',
         require'plugins.nvim-web-devicons',
@@ -35,10 +35,6 @@ require("lazy").setup({
         require'plugins.mason',
         require'plugins.transparent',
         require'plugins.harpoon',
-        -- require'plugins.undotree',
-        -- require'plugins.easytables',
-        -- require'plugins.neo-tree',
-        -- require'plugins.nui-nvim',
     },
     install = {   },
     checker = { enabled = true },

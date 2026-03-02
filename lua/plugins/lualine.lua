@@ -1,4 +1,11 @@
 return {
     "nvim-lualine/lualine.nvim",
-    opts = {},
+    config = function ()
+         require"lualine".setup({
+            options = {
+                section_separators = '',
+                component_separators = ''
+            }
+        });
+    end
 }

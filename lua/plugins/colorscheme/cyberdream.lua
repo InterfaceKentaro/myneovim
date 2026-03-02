@@ -30,7 +30,7 @@ local excludes = {
     whichkey = false,
 };
 
-return{
+return {
     "scottmckendry/cyberdream.nvim",
     lazy = false,
     config = function ()
