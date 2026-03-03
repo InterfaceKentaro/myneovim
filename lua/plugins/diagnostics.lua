@@ -4,7 +4,3 @@ vim.diagnostic.config({
     scope='buffer',
   },
 })
-
-
-
-
