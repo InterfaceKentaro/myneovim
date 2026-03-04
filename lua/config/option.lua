@@ -21,10 +21,3 @@ vim.o.cursorline = true -- Highlight the current line
 vim.o.termguicolors = true -- Enable 24-bit RGB colors
 vim.o.scrolloff = 10
 vim.opt.mouse=nil
-
--- Source - https://stackoverflow.com/a
--- Posted by trash bin, modified by community. See post 'Timeline' for change history
--- Retrieved 2025-11-08, License - CC BY-SA 4.0
-
--- vim.opt.guicursor = "n-c:hor20,i-ci:ver25"
-

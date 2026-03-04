@@ -43,3 +43,6 @@ vim.api.nvim_set_keymap('t', '<Leader>th', '<C-\\><c-n>', {noremap = true});
 
 
 -- lsp 
+
+-- UndoTree Keymap configuration
+vim.api.nvim_set_keymap('n', '<Leader>tut', ':lua vim.cmd[[UndotreeToggle]]<CR>', {noremap = true});

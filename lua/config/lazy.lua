@@ -18,10 +18,9 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-
 require("lazy").setup({
     spec = {
-        require'plugins.toggleterminal',
+        require'plugins.mason',
         require'plugins.colorschemes',
         require'plugins.lualine',
         require'plugins.nvim-web-devicons',
@@ -32,9 +31,9 @@ require("lazy").setup({
         require'plugins.nvim-autopairs',
         require'plugins.nvim-cmp',
         require'plugins.im-select',
-        require'plugins.mason',
         require'plugins.transparent',
         require'plugins.harpoon',
+        require'plugins.undotree',
     },
     install = {   },
     checker = { enabled = true },
