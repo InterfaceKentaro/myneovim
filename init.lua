@@ -1,5 +1,10 @@
 require'config.lazy'
 
+-- require'mason-lspconfig'.setup({
+--     ensure_installed = {
+--     }
+-- })
+
 vim.cmd[[TransparentEnable]]
 
 require'config.option'
@@ -17,3 +22,5 @@ require'plugins.lspconfig.typescript-language-server'
 require'plugins.lspconfig.go'
 require'plugins.lspconfig.css-lsp'
 require'plugins.lspconfig.html-lsp'
+
+

@@ -21,6 +21,7 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
     spec = {
         require'plugins.mason',
+        require'plugins.mason-lspconfig',
         require'plugins.colorschemes',
         require'plugins.lualine',
         require'plugins.nvim-web-devicons',
