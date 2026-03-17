@@ -1,0 +1,16 @@
+# syntax 
+# plugin_name>>git_url
+
+mason>>https://github.com/mason-org/mason.nvim
+mason-lspconfig>>https://github.com/
+harpoon>>https://github.com/
+lualine>>https://github.com/
+nui-nvim>>https://github.com/
+im-select>>https://github.com/
+nvim-web-devicons>>https://github.com/
+rip-grep>>https://github.com/
+telescope-fzf-native>>https://github.com/
+telescope>>https://github.com/
+transparent>>https://github.com/
+treesitter>>https://github.com/
+undotree>>https://github.com/
