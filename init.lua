@@ -8,8 +8,8 @@ vim.cmd("colorscheme cyberdream")
 
 require"lualine".setup({
     options = {
-        section_separators = '',
-        component_separators = ''
+       section_separators = '',
+       component_separators = ''
     }
 })
 
@@ -18,6 +18,33 @@ require'cyberdream'.setup({
         theme = "auto"
     },
 })
+
+require('mason-lspconfig').setup({
+    opts = {
+        automatic_enable = {
+            'lua_ls',
+            'zls',
+            'jdtls',
+            'gopls',
+        }
+    }
+})
+
+require('mason').setup({
+    options = {
+    }
+})
+
+require('im_select').setup({
+    set_default_events = {
+        "VimEnter",
+        "InsertLeave",
+        "CmdlineLeave"
+    }
+})
+
+
+require('telescope').setup({})
 
 require'lua.config.option'
 require'lua.config.keymaps'
@@ -34,47 +61,46 @@ require'plugins.lspconfig.go'
 require'plugins.lspconfig.css-lsp'
 require'plugins.lspconfig.html-lsp'
 
-require('telescope').setup({})
 local luasnip = require('luasnip')
 local cmp = require('cmp')
 cmp.setup({
     snippet = {
         expand = function(args)
-            luasnip.lsp_expand(args.body) -- For `luasnip` users.
+            luasnip.lsp_expand(args.body)
         end,
     },
 
     mapping = cmp.mapping.preset.insert({
-            ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-            ["<C-f>"] = cmp.mapping.scroll_docs(4),
-            ["<C-Space>"] = cmp.mapping.complete(), -- 補完メニュー表示
-            ["<C-e>"] = cmp.mapping.abort(),
-            ["<CR>"] = cmp.mapping.confirm({ select = true }), -- 選択された項目を確定
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
 
-            ["<Tab>"] = cmp.mapping(
-                function(fallback)
-                    if cmp.visible() then
-                        cmp.select_next_item()
-                    elseif luasnip.expand_or_jumpable() then
-                        luasnip.expand_or_jump()
-                    else
-                        fallback()
-                    end
+        ["<Tab>"] = cmp.mapping(
+            function(fallback)
+                if cmp.visible() then
+                    cmp.select_next_item()
+                elseif luasnip.expand_or_jumpable() then
+                    luasnip.expand_or_jump()
+                else
+                    fallback()
+                end
 
-                end, { "i", "s" }
-            ),
+            end, { "i", "s" }
+        ),
 
-            ["<S-Tab>"] = cmp.mapping(
-                function(fallback)
-                    if cmp.visible() then
-                        cmp.select_prev_item()
-                    elseif luasnip.jumpable(-1) then
-                        luasnip.jump(-1)
-                    else
-                        fallback()
-                    end
-                end, { "i", "s" }
-            ),
+        ["<S-Tab>"] = cmp.mapping(
+            function(fallback)
+                if cmp.visible() then
+                    cmp.select_prev_item()
+                elseif luasnip.jumpable(-1) then
+                    luasnip.jump(-1)
+                else
+                    fallback()
+                end
+            end, { "i", "s" }
+        ),
     }),
 
     sources = cmp.config.sources({
