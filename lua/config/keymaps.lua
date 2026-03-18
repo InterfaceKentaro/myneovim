@@ -1,3 +1,4 @@
+local vim = vim
 vim.api.nvim_set_keymap('n', '<Leader>sw', ':set wrap<CR>', {noremap=true})
 vim.api.nvim_set_keymap('n', '<Leader>snw', ':set nowrap<CR>', {noremap=true})
 
@@ -5,7 +6,6 @@ vim.api.nvim_set_keymap('n', '<Leader>snw', ':set nowrap<CR>', {noremap=true})
 vim.keymap.set('n', '<Leader>e', function()
     vim.cmd([[e .]])
 end, {noremap=true})
-
 
 -- tab related keymap
 vim.api.nvim_set_keymap('n', '<Leader>tn', ':tabnew<CR>', {noremap=true})
