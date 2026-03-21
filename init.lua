@@ -1,6 +1,6 @@
 local vim = vim
 require('plugins.plug')
-vim.cmd("colorscheme cyberdream")
+
 vim.cmd("")
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
@@ -10,3 +10,5 @@ require('config.option')
 require('config.keymaps')
 require('plugins.diagnostics')
 require('lsp-config')
+
+vim.cmd("colorscheme silentium")

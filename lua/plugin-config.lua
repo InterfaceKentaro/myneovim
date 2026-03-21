@@ -1,8 +1,8 @@
-require'cyberdream'.setup({
-    options = {
-        -- theme = "auto"
-    },
-})
+print('hello')
+
+local silentium = require('silentium')
+silentium.setup({ accent = "#3FA5B9" })
+print(silentium.colors.accent)
 
 local moonfly = require('lualine.themes.moonfly')
 moonfly.insert.a.bg = '#5ae080'
@@ -16,8 +16,6 @@ require("lualine").setup({
 })
 
 require('mason').setup({
-    options = {
-    }
 })
 
 require('mason-lspconfig').setup({
