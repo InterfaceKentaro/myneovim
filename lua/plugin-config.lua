@@ -1,15 +1,13 @@
-print('hello')
-
 local silentium = require('silentium')
-silentium.setup({ accent = "#3FA5B9" })
-print(silentium.colors.accent)
+silentium.setup({ accent = "#1c9b86" })
 
 local moonfly = require('lualine.themes.moonfly')
 moonfly.insert.a.bg = '#5ae080'
 
 require("lualine").setup({
     options = {
-        theme = 'moonfly',
+        theme = 'auto',
+
         section_separators = '',
         component_separators = ''
     },

@@ -1,10 +1,10 @@
 local vim = vim
-require('plugins.plug')
 
 vim.cmd("")
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+require('plugins.plug')
 require('plugin-config')
 require('config.option')
 require('config.keymaps')
