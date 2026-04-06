@@ -1,5 +1,5 @@
-local silentium = require('silentium')
-silentium.setup({ accent = "#1c9b86" })
+-- local silentium = require('silentium')
+-- silentium.setup({ accent = "#1c9b86" })
 
 local moonfly = require('lualine.themes.moonfly')
 moonfly.insert.a.bg = '#5ae080'

@@ -2,7 +2,10 @@
 local plugpath = vim.fn.stdpath("data") .. '/site/autoload/plug.vim'
 if not (vim.uv or vim.loop).fs_stat(plugpath) then
     -- detect os
-    local your_os = require'oscall'.get_os()
+    local config_dir = vim.fn.stdpath("config")
+    package.path = package.path .. ";" .. config_dir .. "?.lua"
+    local your_os = require("oscall").get_os()
+
     local link_to = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
     local for_unix_base = function()
@@ -12,7 +15,8 @@ if not (vim.uv or vim.loop).fs_stat(plugpath) then
         --   -o, --output  : send output to the passed file instead of the stdout.
         --   -L, --location: Redirect to the alternative url if the indicated url 
         --                   has been move to. 
-        io.popen("sh -c " .. install_cmd);
+        io.popen("sh -c " .. install_cmd .. " 1> /dev/null");
+        print("success.")
     end
 
     local for_windows = function()
@@ -46,7 +50,8 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin')
 Plug("")
 -- Plug("scottmckendry/cyberdream.nvim")
-Plug("silentium-theme/silentium.nvim")
+-- Plug("silentium-theme/silentium.nvim")
+Plug("InterfaceKentaro/clarity.nvim")
 Plug("mason-org/mason.nvim")
 Plug("mason-org/mason-lspconfig.nvim")
 Plug("keaising/im-select.nvim")
