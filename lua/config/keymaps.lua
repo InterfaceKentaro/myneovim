@@ -1,4 +1,5 @@
 local vim = vim
+
 vim.api.nvim_set_keymap('n', '<Leader>sw', ':set wrap<CR>', {noremap=true})
 vim.api.nvim_set_keymap('n', '<Leader>snw', ':set nowrap<CR>', {noremap=true})
 
@@ -48,7 +49,8 @@ vim.api.nvim_set_keymap('n', '<Leader>tt', ':lua vim.cmd[[ToggleTerm]]<CR>', {no
 vim.api.nvim_set_keymap('t', '<Leader>th', '<C-\\><c-n>', {noremap = true});
 
 
--- lsp 
-
 -- UndoTree Keymap configuration
 vim.api.nvim_set_keymap('n', '<Leader>tut', ':lua vim.cmd[[UndotreeToggle]]<CR>', {noremap = true});
+
+-- Golang err handling...
+vim.api.nvim_set_keymap('n', '<Leader>err', ':a<CR>if err != nil {\n\tlog.Fatalf(\"%v\", err)\n\r}<CR>', {noremap = true});

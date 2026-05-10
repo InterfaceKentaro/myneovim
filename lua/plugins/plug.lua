@@ -9,13 +9,13 @@ if not (vim.uv or vim.loop).fs_stat(plugpath) then
     local link_to = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
     local for_unix_base = function()
-        local install_cmd = '\"curl -fLo \"${XDG_DATA_HOME:-$HOME/.local/share}\"/nvim/site/autoload/plug.vim --create-dirs \"' .. link_to
+        local install_cmd = '\"curl --silent --show-error -fLo \"${XDG_DATA_HOME:-$HOME/.local/share}\"/nvim/site/autoload/plug.vim --create-dirs \"' .. link_to
         -- curl options
         --   -f, --fail    :
         --   -o, --output  : send output to the passed file instead of the stdout.
         --   -L, --location: Redirect to the alternative url if the indicated url 
         --                   has been move to. 
-        io.popen("sh -c " .. install_cmd .. " 1> /dev/null");
+        io.popen("sh -c " .. install_cmd);
         print("success.")
     end
 
