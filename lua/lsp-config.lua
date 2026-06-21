@@ -129,3 +129,16 @@ vim.lsp.config['typescript-language-server'] = {
     settings = {},
 };
 vim.lsp.enable("typescript-language-server");
+
+cmd = vim.fn.stdpath('data').."/mason/bin/docker-language-server";
+vim.lsp.config["dockerls"] = {
+    cmd = {
+        cmd,
+        "start",
+        "--studio", 
+        "--verbose"
+    },
+    filetypes = {"dockerfile"},
+    settings = {}
+}
+vim.lsp.enable("dockerls")

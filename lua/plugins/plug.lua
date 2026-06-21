@@ -48,10 +48,7 @@ local vim = vim
 local Plug = vim.fn['plug#']
 
 vim.call('plug#begin')
-Plug("")
--- Plug("scottmckendry/cyberdream.nvim")
--- Plug("silentium-theme/silentium.nvim")
-Plug("InterfaceKentaro/clarity.nvim")
+Plug("InterfaceKentaro/oxocarbon.nvim")
 Plug("mason-org/mason.nvim")
 Plug("mason-org/mason-lspconfig.nvim")
 Plug("keaising/im-select.nvim")
