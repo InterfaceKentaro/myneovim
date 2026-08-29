@@ -1,34 +1,10 @@
 local vim = vim
 local cmd
+local bin = vim.fn.stdpath("data") .. "/mason/bin"
 
-cmd = vim.fn.stdpath("data") .. "/mason/bin/vscode-css-language-server"
-vim.lsp.config['css-lsp'] = {
-    cmd = {
-        cmd, "--stdio"
-    },
-    root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1]),
-    filetypes = {'css', 'html'},
-    settings = {
-    },
-}
-vim.lsp.enable('css-lsp');
-
-cmd = vim.fn.stdpath("data") .. "/mason/bin/vscode-css-language-server"
-vim.lsp.config['css-lsp'] = {
-    cmd = {
-        cmd, "--stdio"
-    },
-    root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1]),
-    filetypes = {'css', 'html'},
-    settings = {
-    },
-}
-vim.lsp.enable('css-lsp');
-
-cmd = vim.fn.stdpath("data") .. "/mason/bin/gopls"
 vim.lsp.config['gopls'] = {
     cmd = {
-        cmd
+        bin .. "/gopls"
     },
     root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1]),
     filetypes = {'go'},
@@ -38,46 +14,32 @@ vim.lsp.config['gopls'] = {
 }
 vim.lsp.enable('gopls');
 
-cmd = vim.fn.stdpath("data") .. "/mason/bin/vscode-html-language-server";
-vim.lsp.config['html-lsp'] = {
-    cmd = {
-        cmd, "--stdio"
-    },
-    root_dir = vim.fs.dirname(vim.fs.find({'.git'}, { upward = true })[1]),
-    filetypes = {'html'},
-    settings = {
-    },
+vim.lsp.config["pylsp"] = {
+    cmd = { bin .. "/pylsp" },
+    filetypes = { "python" }
 }
-vim.lsp.enable('html-lsp');
+vim.lsp.enable("pylsp")
 
-cmd = vim.fn.stdpath('data') .. "/mason/bin/deno";
-vim.lsp.config['deno'] = {
-    cmd = {cmd},
-    filetypes = {
-        'javascript', 'typescript', 'js'
-    },
-    root_dir = vim.fs.dirname(vim.fs.find({ ".git", "mvnw" }, { upward = true })[1]),
+-- vim.lsp.config['deno'] = {
+--     cmd = {
+--         bin .. "/mason/bin/denolsp"
+--     },
+--     filetypes = { 'javascript', 'typescript' },
+--     root_dir = vim.fs.dirname(vim.fs.find({ ".git", "main.js" }, { upward = true })[1]),
+--     settings = {
+--     },
+-- };
+-- vim.lsp.enable('deno');
+
+vim.lsp.config['tsls'] = {
+    cmd = { bin .. "/tsls", "--stdio", "--log-level", "2" },
+    filetypes = { "javascript" },
     settings = {
-        enable = true,
-    },
-};
-vim.lsp.enable('deno');
-
-cmd = vim.fn.stdpath("data") .. "/mason/bin/groovy-language-server"
-vim.lsp.config['groovy-language-server'] = {
-    cmd = {
-        cmd
-    },
-    filetypes = {'build', 'groovy'},
-    root_marker = {},
-
-    settings = {
-
-    },
+    }
 }
-vim.lsp.enable('groovy-language-server');
+vim.lsp.enable'tsls';
 
-cmd = vim.fn.stdpath("data") .. "/mason/bin/jdtls"
+cmd = bin .. "/jdtls"
 vim.lsp.config['jdtls'] = {
     cmd = {
         cmd
@@ -85,12 +47,11 @@ vim.lsp.config['jdtls'] = {
     root_dir = vim.fs.dirname(vim.fs.find({ "pom.xml", "gradlew", ".git", "mvnw", }, { upward = true })[1]),
     filetypes = {'java'},
     settings = {
-
     },
 }
 vim.lsp.enable('jdtls')
 
-cmd = vim.fn.stdpath('data') .. '/mason/bin/lua-language-server'
+cmd = bin .. '/lua-language-server'
 vim.lsp.config['luals'] = {
     cmd = { cmd },
     filetypes = { 'lua' },
@@ -105,7 +66,7 @@ vim.lsp.config['luals'] = {
 }
 vim.lsp.enable('luals')
 
-cmd = vim.fn.stdpath("data") .. "/mason/bin/zls"
+cmd = bin .. "/zls"
 vim.lsp.config['zls'] = {
     cmd = {
         cmd
@@ -117,28 +78,3 @@ vim.lsp.config['zls'] = {
     }
 }
 vim.lsp.enable('zls')
-
-cmd = vim.fn.stdpath"data" .. "/mason/bin/typescript-language-server";
-vim.lsp.config['typescript-language-server'] = {
-    cmd = {
-        cmd,
-        "--stdio"
-    },
-    -- root_fir = vim.fs.dirname(vim.fs.find({'.git'}, { upward = true })[1]),
-    filetypes = {'javascript', 'typescript', 'html'},
-    settings = {},
-};
-vim.lsp.enable("typescript-language-server");
-
-cmd = vim.fn.stdpath('data').."/mason/bin/docker-language-server";
-vim.lsp.config["dockerls"] = {
-    cmd = {
-        cmd,
-        "start",
-        "--studio", 
-        "--verbose"
-    },
-    filetypes = {"dockerfile"},
-    settings = {}
-}
-vim.lsp.enable("dockerls")

@@ -1,11 +1,17 @@
 -- options
 
+local vim = vim;
+
 vim.cmd [[
-highlight Normal guibg=none
-highlight NonText guibg=none
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-set mouse=
+    highlight Normal guibg=none
+    highlight NonText guibg=none
+    highlight Normal ctermbg=none
+    highlight NonText ctermbg=none
+    set spell spelllang=en_us
+    set mouse=
+    set colorcolumn=80
+    set colorcolumn=100
+    highlight ColorColumn guibg='#494949'
 ]]
 
 --- basics

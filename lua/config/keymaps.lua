@@ -44,13 +44,9 @@ vim.api.nvim_set_keymap('n', '<Leader>h8', ':lua require("harpoon.ui").nav_file(
 vim.api.nvim_set_keymap('n', '<Leader>h9', ':lua require("harpoon.ui").nav_file(9)<CR>', {noremap = true})
 
 
--- ToggleTerm keymaps
-vim.api.nvim_set_keymap('n', '<Leader>tt', ':lua vim.cmd[[ToggleTerm]]<CR>', {noremap = true});
-vim.api.nvim_set_keymap('t', '<Leader>th', '<C-\\><c-n>', {noremap = true});
-
-
--- UndoTree Keymap configuration
-vim.api.nvim_set_keymap('n', '<Leader>tut', ':lua vim.cmd[[UndotreeToggle]]<CR>', {noremap = true});
-
 -- Golang err handling...
-vim.api.nvim_set_keymap('n', '<Leader>err', ':a<CR>if err != nil {\n\tlog.Fatalf(\"%v\", err)\n\r}<CR>', {noremap = true});
+vim.api.nvim_set_keymap('n', '<Leader>err', ':a<CR>if err != nil { log.Fatalf(\"%v\", err) }<CR>', {noremap = true});
+
+-- set file type to dockerfile.
+vim.api.nvim_set_keymap('n', '<Leader>df', ':set ft=dockerfile', {noremap = true});
+vim.api.nvim_set_keymap('n', '<Leader>ft', ':set ft=', {noremap = true});

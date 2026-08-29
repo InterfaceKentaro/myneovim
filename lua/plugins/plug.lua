@@ -49,6 +49,7 @@ local Plug = vim.fn['plug#']
 
 vim.call('plug#begin')
 Plug("InterfaceKentaro/oxocarbon.nvim")
+Plug("nvim-mini/mini.indentscope")
 Plug("mason-org/mason.nvim")
 Plug("mason-org/mason-lspconfig.nvim")
 Plug("keaising/im-select.nvim")

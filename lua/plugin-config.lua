@@ -35,6 +35,11 @@ require('im_select').setup({
     }
 })
 
+require("mini.indentscope").setup({
+    delay = 0,
+    symbol = "│"
+})
+
 local luasnip = require('luasnip')
 local cmp = require('cmp')
 cmp.setup({
@@ -103,4 +108,3 @@ cmp.setup({
         end,
     },
 })
-
