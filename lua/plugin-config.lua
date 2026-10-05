@@ -1,13 +1,10 @@
--- local silentium = require('silentium')
--- silentium.setup({ accent = "#1c9b86" })
-
+-- Created by: <kentasukentas@gmail.com>
 local moonfly = require('lualine.themes.moonfly')
 moonfly.insert.a.bg = '#5ae080'
 
 require("lualine").setup({
     options = {
         theme = 'auto',
-
         section_separators = '',
         component_separators = ''
     },
@@ -27,6 +24,8 @@ require('mason-lspconfig').setup({
     }
 })
 
+-- A nice input method auto selector. You can switch Japanese or non-english input method and English 
+-- input seamlessly without hitting ひらがな every single time.
 require('im_select').setup({
     set_default_events = {
         "VimEnter",
@@ -35,6 +34,9 @@ require('im_select').setup({
     }
 })
 
+require('nvim-autopairs').setup({})
+
+-- An indent visualizer. Useful when you write or read indent sensitive language like python or yaml.
 require("mini.indentscope").setup({
     delay = 0,
     symbol = "│"
@@ -42,6 +44,7 @@ require("mini.indentscope").setup({
 
 local luasnip = require('luasnip')
 local cmp = require('cmp')
+
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -108,3 +111,11 @@ cmp.setup({
         end,
     },
 })
+
+-- require("nui-nvim").setup({})
+-- require("nvim-web-devicons").setup({})
+-- require("rip-grep").setup({})
+-- require("telescope-fzf-native").setup({})
+-- require("telescope").setup({})
+-- require("treesitter").setup({})
+-- require("undotree").setup({})

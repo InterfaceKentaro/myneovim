@@ -1,22 +1,18 @@
 -- plug configuration
+local vim = vim
 local plugpath = vim.fn.stdpath("data") .. '/site/autoload/plug.vim'
+
 if not (vim.uv or vim.loop).fs_stat(plugpath) then
     -- detect os
+    local your_os = require("mod.oscall").get_os()
     local config_dir = vim.fn.stdpath("config")
     package.path = package.path .. ";" .. config_dir .. "?.lua"
-    local your_os = require("oscall").get_os()
 
     local link_to = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
     local for_unix_base = function()
-        local install_cmd = '\"curl --silent --show-error -fLo \"${XDG_DATA_HOME:-$HOME/.local/share}\"/nvim/site/autoload/plug.vim --create-dirs \"' .. link_to
-        -- curl options
-        --   -f, --fail    :
-        --   -o, --output  : send output to the passed file instead of the stdout.
-        --   -L, --location: Redirect to the alternative url if the indicated url 
-        --                   has been move to. 
+        local install_cmd = '\"curl --sfSL -o \"${XDG_DATA_HOME:-$HOME/.local/share}\"/nvim/site/autoload/plug.vim --create-dirs \"' .. link_to
         io.popen("sh -c " .. install_cmd);
-        print("success.")
     end
 
     local for_windows = function()
@@ -44,7 +40,6 @@ if not (vim.uv or vim.loop).fs_stat(plugpath) then
     end
 end
 
-local vim = vim
 local Plug = vim.fn['plug#']
 
 vim.call('plug#begin')
@@ -53,7 +48,6 @@ Plug("nvim-mini/mini.indentscope")
 Plug("mason-org/mason.nvim")
 Plug("mason-org/mason-lspconfig.nvim")
 Plug("keaising/im-select.nvim")
-Plug("windwp/nvim-autopairs")
 Plug("nvim-lua/plenary.nvim")
 Plug("nvim-telescope/telescope.nvim")
 Plug("xiyaowong/transparent.nvim")
@@ -66,5 +60,5 @@ Plug("saadparwaiz1/cmp_luasnip")
 Plug("L3MON4D3/LuaSnip")
 Plug("nvim-lualine/lualine.nvim")
 Plug("ThePrimeagen/harpoon")
-
+Plug("windwp/nvim-autopairs")
 vim.call('plug#end')
