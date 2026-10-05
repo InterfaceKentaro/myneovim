@@ -7,7 +7,7 @@ vim.cmd [[
     highlight NonText guibg=none
     highlight Normal ctermbg=none
     highlight NonText ctermbg=none
-    set spell spelllang=en_us
+    set nospell
     set mouse=
     set colorcolumn=80
     set colorcolumn=100

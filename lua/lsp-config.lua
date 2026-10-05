@@ -3,14 +3,10 @@ local cmd
 local bin = vim.fn.stdpath("data") .. "/mason/bin"
 
 vim.lsp.config['gopls'] = {
-    cmd = {
-        bin .. "/gopls"
-    },
+    cmd = { bin .. "/gopls" },
     root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1]),
     filetypes = {'go'},
-    settings = {
-
-    },
+    settings = {},
 }
 vim.lsp.enable('gopls');
 
@@ -20,34 +16,27 @@ vim.lsp.config["pylsp"] = {
 }
 vim.lsp.enable("pylsp")
 
--- vim.lsp.config['deno'] = {
---     cmd = {
---         bin .. "/mason/bin/denolsp"
---     },
---     filetypes = { 'javascript', 'typescript' },
---     root_dir = vim.fs.dirname(vim.fs.find({ ".git", "main.js" }, { upward = true })[1]),
---     settings = {
---     },
--- };
--- vim.lsp.enable('deno');
-
-vim.lsp.config['tsls'] = {
-    cmd = { bin .. "/tsls", "--stdio", "--log-level", "2" },
-    filetypes = { "javascript" },
+-- This deno lsp runs on docker or podman. the `./denolsp` is a wrapper script. You can get the docker
+-- image at the different repository. Or should I include it within this configuration directory?
+vim.lsp.config['deno'] = {
+    cmd = { bin .. "/denolsp" },
+    filetypes = { 'javascript', 'typescript' },
+    root_dir = vim.fs.dirname(vim.fs.find({ ".git", "main.js" }, { upward = true })[1]),
     settings = {
-    }
-}
-vim.lsp.enable'tsls';
-
-cmd = bin .. "/jdtls"
-vim.lsp.config['jdtls'] = {
-    cmd = {
-        cmd
+        deno = {
+            enable = true,
+            unstable = true
+        }
     },
+};
+vim.lsp.enable('deno');
+
+-- There's an jdtls wrapper script. 
+vim.lsp.config['jdtls'] = {
+    cmd = { bin .. "/jdtls", vim.fs.basename(vim.fn.getcwd()) },
     root_dir = vim.fs.dirname(vim.fs.find({ "pom.xml", "gradlew", ".git", "mvnw", }, { upward = true })[1]),
     filetypes = {'java'},
-    settings = {
-    },
+    settings = { java = {} },
 }
 vim.lsp.enable('jdtls')
 
