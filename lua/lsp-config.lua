@@ -2,6 +2,30 @@ local vim = vim
 local cmd
 local bin = vim.fn.stdpath("data") .. "/mason/bin"
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+vim.lsp.config("html_ls", {
+    capabilities = capabilities,
+})
+
+vim.lsp.config["html_ls"] = {
+    cmd = { bin .. "/html_ls" },
+    root_dir = vim.fs.dirname(vim.fs.find({".git", "index.html"}, {upward = true})[1]),
+    filetypes = {'html', 'tmpl'},
+    settings = {
+        html = {
+            format = { wrapLineLength = 120, wrapAttributes = 'auto' },
+            suggest = { html5 = true },
+            validate = { scripts = true, styles = true },
+        },
+    },
+    before_init = function (params)
+        params.processId = vim.NIL
+    end
+}
+vim.lsp.enable("html_ls")
+
 vim.lsp.config['gopls'] = {
     cmd = { bin .. "/gopls" },
     root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1]),
